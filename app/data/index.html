@@ -5,30 +5,75 @@
     <title>Hello World</title>
   </head>
   <body>
-        <h1>Hello, World</h1>
-        <pre>
-    			&nbsp; &nbsp; \
-    			&nbsp; &nbsp; &nbsp;\
-    			&nbsp; &nbsp; &nbsp; \\
-    			&nbsp; &nbsp; &nbsp; &nbsp;\\
-    			&nbsp; &nbsp; &nbsp; &nbsp; &gt;\/7
-    			&nbsp; &nbsp; _.-(6&#39; &nbsp;\
-    			&nbsp; &nbsp;(=___._/` \
-    			&nbsp; &nbsp; &nbsp; &nbsp; ) &nbsp;\ |
-    			&nbsp; &nbsp; &nbsp; &nbsp;/ &nbsp; / |
-    			&nbsp; &nbsp; &nbsp; / &nbsp; &nbsp;&gt; /
-    			&nbsp; &nbsp; &nbsp;j &nbsp; &nbsp;&lt; _\
-    			&nbsp;_.-&#39; : &nbsp; &nbsp; &nbsp;``.
-    			&nbsp;\ r=._\ &nbsp; &nbsp; &nbsp; &nbsp;`.
-    			&lt;`\\_ &nbsp;\ &nbsp; &nbsp; &nbsp; &nbsp; .`-.
-    			&nbsp;\ r-7 &nbsp;`-. ._ &nbsp;&#39; . &nbsp;`\
-    			&nbsp; \`, &nbsp; &nbsp; &nbsp;`-.`7 &nbsp;7) &nbsp; )
-    			&nbsp; &nbsp;\/ &nbsp; &nbsp; &nbsp; &nbsp; \| &nbsp;\&#39; &nbsp;/ `-._
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; || &nbsp; &nbsp;.&#39;
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ,.-&#39; &gt;.&#39;
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;.&#39;_.&#39;&#39;
-    			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;&#39;
-        </pre>
+
+	<link href='https://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet' type='text/css'>
+	<div id="root">Loading Comic...</div>
+	<script src="https://fb.me/react-with-addons-0.14.3.min.js"></script>
+	<script src="https://fb.me/react-dom-0.14.3.min.js"></script>
+	<script src="https://sonny.js.org/react-komik/dist/komik.js"></script>
+	<script>
+		var { Panel, Character, Balloon, Strip } = Komik;
+		var imgUrl = 'https://sonny.js.org/react-komik/dist/';
+
+		let Comic = (props) => (
+		    <Strip title="React Komik!" column="2" fontFamily="Patrick Hand" fontSize="13" upperCase={true}>
+		        <Panel>
+		            <Character
+		                image={imgUrl + 'char1.png'}
+		                left="70"
+		                scale="0.65">
+		                <Balloon 
+		                    left="-80" 
+		                    height="100" 
+		                    image={imgUrl + 'chat_left.svg'}
+		                    text="Hi. My name is Peter"/>
+		            </Character>
+		        </Panel>
+		        <Panel>
+		            <Character
+		                image={imgUrl + 'char2.png'}
+		                left="30"
+		                scale="0.65">
+		                <Balloon
+		                    height="160"
+		                    left="60"
+		                    bottom="-110"
+		                    image={imgUrl + 'chat_right.svg'}
+		                    text="This is my nose thing"
+		                    />
+		            </Character>
+		        </Panel>
+		        <Panel>
+		            <Character
+		                image={imgUrl + 'char1_hype.png'}
+		                scale="0.9"
+		                left="30">
+		                <Balloon
+		                    height="130"
+		                    left="-40"
+		                    image={imgUrl + 'chat_left.svg'}
+		                    text="Hey look! It's React Komik! We can create this comic strip with ReactJS!"
+		                    />
+		            </Character>
+		        </Panel>
+		        <Panel>
+		            <Character
+		                image={imgUrl + 'char2_magic.png'}
+		                scale="0.65">
+		                <Balloon
+		                    height="80"
+		                    left="80"
+		                    image={imgUrl + 'chat_right.svg'}
+		                    text="It's MAGIC"
+		                    />
+		            </Character>
+		        </Panel>
+		        <Character image={imgUrl + 'footer.png'} align="center" bottom="20" scale="0.8" />
+		    </Strip>
+		);
+
+		ReactDOM.render(<Comic />, document.getElementById('root'));
+	</script>
 
   </body>
 </html>
